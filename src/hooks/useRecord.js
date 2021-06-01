@@ -11,6 +11,20 @@ export const useRecord = () => {
         setCurrent(color);
     };
 
+    const undo = () => {
+        if (currentIndex > 0) {
+            setCurrentIndex(currentIndex - 1);
+            setCurrent(history[currentIndex]);
+        }
+    };
+
+    const redo = () => {
+        if (currentIndex < history.length - 2) {
+            setCurrentIndex(currentIndex + 1);
+            setCurrent(history[currentIndex]);
+        }
+    };
+
     return {
         current,
         undo,
