@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const useRecord = (color) => {
-    const [history, setHistory] = useState(['#FF00FF', color]);
+    const [history, setHistory] = useState([color]);
     const [currentIndex, setCurrentIndex] = useState(history.length);
     const [current, setCurrent] = useState(color);
 
@@ -21,14 +21,12 @@ export const useRecord = (color) => {
 
     const undo = () => {
         if (currentIndex > 1) {
-            console.log(currentIndex, history.length, 'undo');
             setCurrentIndex(currentIndex - 1);
         }
     };
 
     const redo = () => {
         if (currentIndex < history.length) {
-            console.log(currentIndex, history.length, 'redo');
             setCurrentIndex(currentIndex + 1);
         }
     };
