@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRecord } from '../../hooks/useRecord';
 
 function App() {
   const { current, undo, redo, record } = useRecord('#FF0000');
